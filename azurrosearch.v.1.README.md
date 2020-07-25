@@ -6,51 +6,25 @@ include_once 'azurroheader.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="azurrostyle.css" media="screen"/>
-    <title>AzurroSearch</title>
+    <title>AzurroCheck</title>
 </head>
 <body>
-                    <div class="main">
-                            <div class="text">
-                            <h3>Private site for Azurro Garden owners.</h>
-                            <h3>...........................................</h>            
-                            </div>
+                <div class="main">
+                        <div class="text">
+                           <h3>Private site for Azurro Garden owners.</h>
+                           <h3>...........................................</h>
+             
+                        </div>
 
-                                <div class = "search">
-                                    <?php
-                                            $servername='localhost';
-                                            $username='root';
-                                            $password='ogi123456';
-                                            $dbname = "azurrodb";
-                                    
-                                            $link = mysqli_connect("localhost", "root", "ogi123456", "azurrodb");
+                        <form action="azurrosearchdb.php" method="POST">
 
-                                            if($link === false)
-                                            {
-                                            die("ERROR: Could not connect. " . mysqli_connect_error());
-                                            }
-                                            // $fev = 'Гари';
-                                            // echo $fev;
-                                            // $fstchar = 'Г';
-                                            // echo $fstchar;
+                                  <label for="entersearch">Pleace, enter :</label><br>
+                                  <input type="text" id="entersearch" name="entersearch" placeholder="Enter apartment you want to search ..."><br>
 
-                                            $search = "SELECT * FROM azurroinfo WHERE apartnumber LIKE 'fstchar%'";
-
-                                                if($result = mysqli_query($link, $search))
-                                                        {
-                                                            while($rows = mysqli_fetch_assoc($result))
-                                                            {
-                                                                foreach($rows as $key => $val)
-                                                                {
-                                                                    echo $val;
-                                                                    
-                                                                }
-                                                            }
-                                                        }
-
-                                    ?>
-                                </div>
-                    </div>
+                                  <input type="submit" id="submitbuton" value="Submit"><br><br>
+                        </form>
+                        
+                </div>  
     
 </body>
 </html>
